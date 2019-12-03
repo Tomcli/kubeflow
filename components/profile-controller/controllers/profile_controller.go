@@ -61,6 +61,7 @@ const (
 	kubeflowView               = "kubeflow-view"
 	istioInjectionLabel        = "istio-injection"
 	katibMetricsCollectorLabel = "katib-metricscollector-injection"
+	inferenceServiceLabel      = "serving.kubeflow.org/inferenceservice"
 )
 
 const DEFAULT_EDITOR = "default-editor"
@@ -118,6 +119,7 @@ func (r *ProfileReconciler) Reconcile(request ctrl.Request) (ctrl.Result, error)
 			Labels: map[string]string{
 				istioInjectionLabel:        "enabled",
 				katibMetricsCollectorLabel: "enabled",
+				inferenceServiceLabel:      "enabled",
 			},
 			Name: instance.Name,
 		},
